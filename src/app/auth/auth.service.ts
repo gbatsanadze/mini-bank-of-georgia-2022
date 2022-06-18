@@ -70,7 +70,7 @@ export class AuthService {
 
   logout() {
     this.user.next(undefined);
-    this.router.navigate(['/auth']);
+    this.router. navigate(['/auth']);
     localStorage.removeItem('userData');
     if (this.timer) {
       clearTimeout(this.timer);

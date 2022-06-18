@@ -1,0 +1,54 @@
+<form [formGroup]="form" (ngSubmit)="onLogin()" class="login">
+  <div class="field">
+    <div class="ui left icon input"><i class="user icon"></i>
+      <input formControlName="username" type="text" placeholder="მომხმარებელი">
+
+    </div>
+    <ng-container *ngIf="get('username').invalid && get('username').touched">
+      <p class="error" *ngFor="let error of errors('username')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <div class="field">
+    <div class="ui left icon input"><i class="lock icon"></i>
+      <input formControlName="password" type="password" placeholder="პაროლი">
+
+    </div>
+    <ng-container *ngIf="get('password').invalid && get('password').touched">
+      <p class="error" *ngFor="let error of errors('password')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <div class="auth__actions">
+    <a routerLink="register"
+       class="auth__switch-mode"><span
+      class="ui orange text">რეგისტრაცია</span></a>
+    <button [disabled]="form.invalid" type="submit" class="ui basic orange right floated button"><i
+      class="sign in alternate icon"></i>
+      შესვლა
+    </button>
+  </div>
+</form>
+<router-outlet></router-outlet>
+
+
+<!--<form [formGroup]="myForm" class="login">-->
+<!--  <div class="field">-->
+<!--    <div class="ui left icon input"><i class="user icon"></i>-->
+<!--      <input formControlName="userName" type="text" placeholder="მომხმარებელი">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="field">-->
+<!--    <div class="ui left icon input"><i class="lock icon"></i><input-->
+<!--      formControlName="password" type="password" placeholder="პაროლი"-->
+<!--    ></div>-->
+<!--  </div>-->
+<!--  <div class="auth__actions">-->
+<!--    <a routerLink="register"-->
+<!--      class="auth__switch-mode"><span-->
+<!--      class="ui orange text">რეგისტრაცია</span></a>-->
+<!--    <button [disabled]="myForm.invalid" type="submit" class="ui basic orange right floated button"><i-->
+<!--      class="sign in alternate icon"></i>-->
+<!--      შესვლა-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</form>-->
+<!--<router-outlet></router-outlet>-->

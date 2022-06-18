@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="onRegister()" class="register ng-untouched ng-pristine ng-invalid">
+  <div class="field">
+    <div class="ui left icon input"><i class="address card icon"></i>
+      <input formControlName="name" type="text" placeholder="სახელი" class="ng-untouched ng-pristine ng-invalid">
+
+    </div>
+    <ng-container *ngIf="get('name').invalid && get('name').touched">
+      <p class="error" *ngFor="let error of errors('name')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <div class="field">
+    <div class="ui left icon input"><i class="user icon"></i>
+      <input formControlName="username" type="text" placeholder="მომხმარებელი" class="ng-untouched ng-pristine ng-invalid">
+
+    </div>
+    <ng-container *ngIf="get('username').invalid && get('username').touched">
+      <p class="error" *ngFor="let error of errors('username')">{{ error }}</p>
+    </ng-container>
+
+  </div>
+  <div class="field">
+    <div class="ui left icon input"><i class="lock icon"></i>
+      <input formControlName="password" type="password" placeholder="პაროლი" class="ng-untouched ng-pristine ng-invalid">
+
+    </div>
+    <ng-container *ngIf="get('password').invalid && get('password').touched">
+      <p class="error" *ngFor="let error of errors('password')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <div class="field">
+    <div class="ui left icon input"><i class="lock icon"></i>
+      <input formControlName="confirmPassword" type="password" placeholder="განმეორებითი პაროლი" class="ng-untouched ng-pristine ng-invalid">
+
+    </div>
+    <ng-container *ngIf="get('confirmPassword').invalid && get('confirmPassword').touched">
+      <p class="error" *ngFor="let error of errors('confirmPassword')">{{ error }}</p>
+    </ng-container>
+  </div>
+  <div class="auth__actions">
+    <a routerLink="" class="auth__switch-mode">
+      <span class="ui orange text">შესვლა</span>
+    </a>
+    <button [disabled]="form.invalid" type="submit" class="ui basic orange right floated button"><i
+      class="sign in alternate icon"></i>
+      რეგისტრაცია
+    </button>
+    <div class="ui error message" *ngIf="error">
+      <i class="close icon" (click)="error = undefined"></i>
+      <div class="header">Error</div>
+      {{ error }}
+    </div>
+  </div>
+</form>

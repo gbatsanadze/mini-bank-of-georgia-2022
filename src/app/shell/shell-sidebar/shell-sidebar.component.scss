@@ -23,6 +23,21 @@ $white: #fff;
     min-height: 160px;
   }
 
+  .user-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    overflow: hidden;
+    //width: 100%;
+    //height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
   &__pages-section {
     list-style: none;
     padding: 0;

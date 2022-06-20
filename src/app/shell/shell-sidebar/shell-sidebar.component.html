@@ -1,10 +1,20 @@
 <div class="left-sidebar">
   <div class="left-sidebar__user-section">
-    <!-- TODO: Show User's name and picture here -->
+    <div class="user-upper-section">
+      <div class="user-image">
+        <img alt="user image" src="https://picsum.photos/200">
+      </div>
+      <div class="user-name">
+        {{name}}
+      </div>
+    </div>
+    <div class="user-lower-section">
+      {{username}}
+    </div>
   </div>
   <ul class="left-sidebar__pages-section">
     <li>
-      <a href="#">
+      <a [routerLink]="'bpm'">
         <i class="home icon"></i>
         <span>მთავარი</span>
       </a>

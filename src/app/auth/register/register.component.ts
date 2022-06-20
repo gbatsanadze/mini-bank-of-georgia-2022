@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Validators} from '../../shared/validators.service';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../shared/auth/auth.service';
 
 @Component({
   selector: 'bg-register',

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Validators } from 'src/app/shared/validators.service';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../shared/auth/auth.service';
 import { AlertComponent } from '../../shared/alert/alert.component';
 import { PlaceholderDirective } from 'src/app/shared/placeholder.directive';
 
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.login(username, password).subscribe(
       (resData) => {
         console.log(resData);
-        this.router.navigate(['/']);
+        this.router.navigate(['/bpm']);
         this.form.reset();
       },
       (error) => {

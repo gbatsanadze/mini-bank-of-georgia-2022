@@ -60,3 +60,29 @@ $white: #fff;
     }
   }
 }
+.user-lower-section {
+  text-align: right;
+  color: #fff;
+}
+.user-name {
+  line-height: 23px;
+  font-size: 23px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.user-upper-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-sidebar__user-section {
+  padding: 40px 15px 15px;
+  background-image: url(/assets/images/account-bg.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  text-align: right;
+  min-height: 160px;
+}

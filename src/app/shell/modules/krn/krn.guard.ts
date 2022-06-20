@@ -9,13 +9,14 @@ import {
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
-import { AuthService } from './auth.service';
+
+import {ClientsService} from '../bpm/clients.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+export class KrnGuard implements CanActivate {
+  constructor(private clientService: ClientsService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -25,13 +26,14 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.user.pipe(
+    return this.clientService.client.pipe(
       take(1),
-      map((user) => {
-        if (!!user) {
+      map((client) => {
+        if (client) {
           return true;
+        } else {
+          this.router.navigate(['/bpm/bpm000']);
         }
-        return this.router.createUrlTree(['/auth']);
       })
     );
   }

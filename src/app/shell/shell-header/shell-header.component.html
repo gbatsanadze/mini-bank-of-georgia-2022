@@ -20,13 +20,11 @@
       <i class="bars icon"></i>
     </div>
     <!-- TODO: add directive so that popup works -->
-    <div class="ui basic circular icon button bg-popup" bgPopup>
+    <div class="ui basic circular icon button bg-popup" bgPopup >
       <i class="user icon"  ></i>
       <div class="body">
-        <div class="item">
-          <a>
-            გასვლა</a>
-
+        <div class="item" (click)="onLogout()">
+          გასვლა
         </div>
       </div>
     </div>

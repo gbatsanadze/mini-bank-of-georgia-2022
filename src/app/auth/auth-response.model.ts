@@ -1,7 +1,7 @@
-export interface AuthResponseModel {
-  token: string;
-  expirationDate: number;
-  name:	string;
-  username:	string;
-  image:	string;
-}
+// export interface AuthResponseModel {
+//   token: string;
+//   expirationDate: number;
+//   name:	string;
+//   username:	string;
+//   image:	string;
+// }

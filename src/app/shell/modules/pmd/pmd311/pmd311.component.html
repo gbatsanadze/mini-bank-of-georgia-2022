@@ -1,1 +1,60 @@
-<p>pmd311 works!</p>
+<form class="ui segments" [formGroup]="formGroup">
+  <div class="ui segment">
+    <h1>თანხის გადარიცხვა</h1>
+  </div>
+  <div class="ui segment">
+    <div class="ui form ">
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="senderAccountKey">გამგზავნი ანგარიში</label>
+          <select formControlName="senderAccountKey" id="senderAccountKey">
+            <option value="" >აირჩიე</option>
+            <option value="{{account.accountKey}}" *ngFor="let account of accounts">{{account.accountKey}}- {{account.amount |toFixed :2}}GEL ({{account.accountName}}) </option>
+
+          </select>
+        </div>
+
+      </div>
+      <ng-container *ngIf="get('senderAccountKey').touched && get('senderAccountKey').touched">
+        <p *ngFor="let error of errors('senderAccountKey')">
+          <span>{{ error }}</span>
+        </p>
+      </ng-container>
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="receiverAccountKey">მიმღები ანგარიში</label>
+          <select formControlName="receiverAccountKey" id="receiverAccountKey">
+            <option value="">აირჩიე</option>
+            <option value="{{account.accountKey }}" *ngFor="let account of allAccounts">{{account.accountKey}}- {{account.amount |toFixed :2}}GEL ({{account.accountName}}) </option>
+
+          </select>
+        </div>
+      </div>
+      <ng-container *ngIf="get('receiverAccountKey').touched && get('receiverAccountKey').touched">
+        <p *ngFor="let error of errors('receiverAccountKey')">
+          <span>{{ error }}</span>
+        </p>
+      </ng-container>
+
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="amount">თანხა</label>
+          <input type="number" formControlName="amount" id="amount">
+        </div>
+      </div>
+      <ng-container *ngIf="get('amount').touched && get('amount').touched">
+        <p *ngFor="let error of errors('amount')">
+          <span>{{ error }}</span>
+        </p>
+      </ng-container>
+
+    </div>
+
+  </div>
+  <div class="ui segment">
+    <button type='submit' class="ui orange icon button" (click)="onTransfer()">
+      გადარიცხვა
+    </button>
+  </div>
+
+</form>
